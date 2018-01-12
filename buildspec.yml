@@ -1,0 +1,26 @@
+version: 0.2
+
+env:
+  variables:
+    JEKYLL_ENV: "production"
+   
+phases:
+  install:
+    commands:
+      - gem install bundler
+  pre_build:
+    commands:
+      - bundle install
+  build:
+    commands:
+      - bundle exec jekyll build
+  post_build:
+    commands:
+      - aws s3 sync --delete --cache-control "max-age=300" --exclude assets/* _site/ "s3://dailysecurity.news"
+      - aws s3 sync --delete --cache-control "max-age=31536000" _site/assets "s3://dailysecurity.news/assets"
+
+artifacts:
+  files: 
+    - '**/*'
+  base-directory: '_site*'
+  discard-paths: yes
