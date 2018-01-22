@@ -27,6 +27,8 @@ last_modified_at: 2017-04-28 12:35:00 +1200
     <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
 </h3>
 <p>
-    <i>Posted <span class="post-meta">{{ post.date | date: date_format }}</span></i><br/> {{ post.excerpt }}
+    <i>Posted <span class="post-meta">{{ post.date | date: date_format }}</span></i><br/> 
+    {{ post.excerpt }} {% if post.content contains site.excerpt_separator %}<br/>
+    <a class="post-link" href="{{ post.url | relative_url }}"><i>Read more...</i></a>{% endif %}
 </p>
 <hr/> {% endfor %}
