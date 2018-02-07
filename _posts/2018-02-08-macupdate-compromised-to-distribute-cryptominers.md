@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Macupdate downloads distributing cryptominer"
-date:   2018-01-15 16:15:00 +1300
+date:   2018-02-08 11:39:00 +1300
 tags: cryptominer macupdate trojan
 excerpt_separator: "<!--more-->"
 ---
